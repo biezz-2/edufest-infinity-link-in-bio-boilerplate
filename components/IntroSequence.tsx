@@ -15,7 +15,8 @@ export default function IntroSequence({ onComplete }: IntroSequenceProps) {
     const [stage, setStage] = useState<Stage>('loading')
 
     useEffect(() => {
-        // Check if intro has been shown before
+        // Temporarily commented out for testing so intro shows on every refresh
+        /*
         const hasSeenIntro = localStorage.getItem('hasSeenIntro')
 
         if (hasSeenIntro) {
@@ -23,14 +24,15 @@ export default function IntroSequence({ onComplete }: IntroSequenceProps) {
             setStage('complete')
             onComplete?.()
         }
+        */
     }, [onComplete])
 
     const handleStageComplete = (nextStage: Stage) => {
         setStage(nextStage)
 
         if (nextStage === 'complete') {
-            // Mark intro as seen
-            localStorage.setItem('hasSeenIntro', 'true')
+            // Mark intro as seen (temporarily disabled for testing)
+            // localStorage.setItem('hasSeenIntro', 'true')
             onComplete?.()
         }
     }

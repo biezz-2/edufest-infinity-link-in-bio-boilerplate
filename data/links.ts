@@ -9,7 +9,7 @@ export const links: SocialLink[] = [
   {
     id: 1,
     title: "Form Pendaftaran Lomba",
-    url: "https://forms.gle/your-form-link",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSdlkhSH80Nsyn_AtwIgZFiQrF8Pm_8xl3vIOUxQwajzZ_22Jg/viewform",
     icon: "📝",
   },
   {

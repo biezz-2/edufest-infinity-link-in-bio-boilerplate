@@ -21,13 +21,13 @@ export default function RevealStage({
     }>>([])
 
     useEffect(() => {
-        // Generate 40 random particles
+        // Generate 30 random particles (slightly fewer for minimalism)
         setSparkles(
-            [...Array(40)].map(() => ({
+            [...Array(30)].map(() => ({
                 left: Math.random() * 100,
                 top: Math.random() * 100,
-                delay: Math.random() * 0.5,
-                scale: 0.5 + Math.random() * 1.5,
+                delay: Math.random() * 0.3,
+                scale: 0.4 + Math.random() * 1.2,
             }))
         )
 
@@ -37,51 +37,51 @@ export default function RevealStage({
 
     return (
         <motion.div
-            className="fixed inset-0 z-[9999] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center overflow-hidden pointer-events-none"
+            className="fixed inset-0 z-[9999] bg-[#f8f9fd] flex items-center justify-center overflow-hidden pointer-events-none"
             initial={{ opacity: 1 }}
             animate={{ opacity: [1, 1, 0] }}
             transition={{ duration: duration / 1000, times: [0, 0.8, 1] }}
         >
-            {/* Cinematic Flash Spread */}
+            {/* Elegant Clean Flash */}
             <motion.div
                 className="absolute inset-0 z-30"
                 initial={{ opacity: 0 }}
                 animate={{
-                    opacity: [0, 1, 0],
-                    backgroundColor: ["rgba(255,255,255,0)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0)"]
+                    opacity: [0, 0.8, 0],
+                    backgroundColor: ["#ffffff", "#f8f9fd", "#f8f9fd"]
                 }}
-                transition={{ duration: 0.8, times: [0, 0.2, 1] }}
+                transition={{ duration: 0.6, times: [0, 0.3, 1] }}
             />
 
-            {/* Concentric Shockwaves (Igloo Style) - 3 waves */}
-            {[...Array(3)].map((_, i) => (
+            {/* Soft Radial Waves - Professional Blue */}
+            {[...Array(2)].map((_, i) => (
                 <motion.div
                     key={i}
-                    className="absolute w-[300px] h-[300px] border-[0.5px] border-[#ff0088] rounded-full z-10"
+                    className="absolute w-[400px] h-[400px] border-[0.5px] border-[#38b2ff]/30 rounded-full z-10"
                     style={{
                         left: '50%',
                         top: '50%',
-                        marginLeft: '-150px',
-                        marginTop: '-150px'
+                        marginLeft: '-200px',
+                        marginTop: '-200px'
                     }}
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{
-                        scale: [0, 15],
-                        opacity: [0, 0.3, 0],
+                        scale: [0, 8],
+                        opacity: [0, 0.2, 0],
                     }}
                     transition={{
-                        duration: 1.5,
-                        delay: i * 0.15,
+                        duration: 1.2,
+                        delay: i * 0.2,
                         ease: [0.16, 1, 0.3, 1]
                     }}
                 />
             ))}
 
-            {/* Radial Burst of Particles */}
+            {/* Light Blue Particles */}
             {sparkles.map((sparkle, i) => (
                 <motion.div
                     key={i}
-                    className="absolute w-2 h-2 bg-blue-400 rounded-full z-20"
+                    className="absolute w-1.5 h-1.5 bg-[#38b2ff] rounded-full z-20"
                     style={{
                         left: `${sparkle.left}%`,
                         top: `${sparkle.top}%`,
@@ -89,45 +89,26 @@ export default function RevealStage({
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{
                         scale: [0, sparkle.scale, 0],
-                        opacity: [0, 1, 0],
+                        opacity: [0, 0.6, 0],
                     }}
                     transition={{
-                        duration: 1,
+                        duration: 0.8,
                         delay: sparkle.delay,
                         ease: "easeOut"
                     }}
                 />
             ))}
 
-            {/* Technical Grid Dissolve Effect */}
-            <motion.div
-                className="absolute inset-0 opacity-[0.05] pointer-events-none"
-                animate={{
-                    opacity: [0.05, 0.1, 0],
-                    scale: [1, 1.1]
-                }}
-                transition={{ duration: 1.5 }}
-            >
-                <svg className="w-full h-full">
-                    <defs>
-                        <pattern id="transition-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ff0088" strokeWidth="0.5" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#transition-grid)" />
-                </svg>
-            </motion.div>
-
-            {/* Placeholder SVG Integration - The "exploding" core asset */}
+            {/* Placeholder SVG Integration - The "exploding" core asset - Softened */}
             <motion.div
                 className="absolute z-25 w-48 h-48 md:w-64 md:h-64"
-                initial={{ scale: 0, opacity: 0 }}
+                initial={{ scale: 0.5, opacity: 0 }}
                 animate={{
-                    scale: [0, 1.5, 2],
-                    opacity: [0, 0.8, 0],
+                    scale: [0.5, 1.2, 2],
+                    opacity: [0, 0.4, 0],
                 }}
                 transition={{
-                    duration: 1.2,
+                    duration: 1,
                     ease: "easeOut"
                 }}
             >
@@ -135,25 +116,25 @@ export default function RevealStage({
                     src="/placeholder.svg"
                     alt="Core Asset"
                     fill
-                    className="object-contain opacity-50"
+                    className="object-contain opacity-20 grayscale brightness-110"
                 />
             </motion.div>
 
-            {/* Center Core Light */}
+            {/* Center Core Light - Professional Blue Glow */}
             <motion.div
-                className="absolute w-[200px] h-[200px] bg-[#ff0088] rounded-full blur-[100px]"
+                className="absolute w-[300px] h-[300px] bg-[#38b2ff] rounded-full blur-[120px]"
                 style={{
                     left: '50%',
                     top: '50%',
-                    marginLeft: '-100px',
-                    marginTop: '-100px'
+                    marginLeft: '-150px',
+                    marginTop: '-150px'
                 }}
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{
-                    scale: [0, 5],
-                    opacity: [0, 0.6, 0]
+                    scale: [0, 4],
+                    opacity: [0, 0.3, 0]
                 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut" }}
             />
         </motion.div>
     )

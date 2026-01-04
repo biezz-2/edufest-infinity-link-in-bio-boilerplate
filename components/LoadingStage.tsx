@@ -50,22 +50,22 @@ export default function LoadingStage({
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center pointer-events-none"
+      className="fixed inset-0 z-[9999] bg-[#f8f9fd] flex items-center justify-center pointer-events-none"
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.5 }}
     >
-      {/* Technical Grid Background */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Technical Grid Background - Faint Blue */}
+      <div className="absolute inset-0 opacity-[0.05]">
         <svg className="w-full h-full">
           <defs>
-            <pattern id="tech-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <pattern id="tech-grid" width="60" height="60" patternUnits="userSpaceOnUse">
               <path
-                d="M 40 0 L 0 0 0 40"
+                d="M 60 0 L 0 0 0 60"
                 fill="none"
-                stroke="#ff0088"
-                strokeWidth="0.3"
+                stroke="#38b2ff"
+                strokeWidth="0.5"
               />
             </pattern>
           </defs>
@@ -74,21 +74,21 @@ export default function LoadingStage({
       </div>
 
       {/* Main Counter Container */}
-      <div className="relative flex flex-col items-center gap-6">
-        {/* Infinity Logo Integration */}
+      <div className="relative flex flex-col items-center gap-8">
+        {/* Infinity Logo Integration - Modern Blue Glow */}
         <motion.div
-          className="relative w-24 h-24 mb-2"
-          initial={{ scale: 0, rotate: 0 }}
+          className="relative w-24 h-24"
+          initial={{ scale: 0.8, opacity: 0 }}
           animate={{
-            scale: [0, 1.1, 1],
-            rotate: [0, 360]
+            scale: 1,
+            opacity: 1,
           }}
           transition={{
-            duration: 3,
-            ease: "easeInOut",
-            repeat: Infinity
+            duration: 1,
+            ease: "easeOut"
           }}
         >
+          <div className="absolute inset-0 bg-[#38b2ff] rounded-full blur-2xl opacity-10 animate-pulse"></div>
           <Image
             src="/logo/icon.svg"
             alt="Infinity Logo"
@@ -98,87 +98,44 @@ export default function LoadingStage({
           />
         </motion.div>
 
-        {/* Decorative top dots */}
-        <div className="flex gap-2">
-          {[...Array(3)].map((_, i) => (
+        {/* Minimalist Progress Indicator */}
+        <div className="flex flex-col items-center gap-2">
+            <div className="flex items-baseline gap-1">
+              <motion.span
+                className="font-sans text-7xl md:text-9xl font-light text-slate-800 tracking-tighter"
+                key={count}
+              >
+                {count}
+              </motion.span>
+              <span className="text-2xl md:text-3xl font-medium text-[#38b2ff]">%</span>
+            </div>
+            
+            {/* Status Message */}
             <motion.div
-              key={i}
-              className="w-1.5 h-1.5 rounded-full bg-[#ff0088]"
-              animate={{ opacity: [0.3, 1, 0.3] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                delay: i * 0.2
-              }}
-            />
-          ))}
+              className="mt-4"
+              key={messageIndex}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <p className="font-sans text-xs md:text-sm font-medium text-slate-400 tracking-[0.2em] uppercase">
+                {statusMessages[messageIndex]}
+              </p>
+            </motion.div>
         </div>
 
-        {/* Percentage Counter */}
-        <div className="flex items-center gap-2">
-          <motion.span
-            className="font-mono text-6xl md:text-8xl text-white tracking-[0.5rem]"
-            key={count}
-            initial={{ opacity: 0.7 }}
-            animate={{ opacity: 1 }}
-          >
-            {count.toString().padStart(3, '0')}
-          </motion.span>
-          <motion.span
-            className="font-mono text-6xl md:text-8xl text-[#ff0088]"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1, repeat: Infinity }}
-          >
-            %
-          </motion.span>
-        </div>
-
-        {/* Status Message */}
-        <motion.div
-          className="text-center"
-          key={messageIndex}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <p className="font-mono text-sm md:text-base text-gray-400 tracking-wider">
-            {statusMessages[messageIndex]}
-          </p>
-        </motion.div>
-
-        {/* Decorative bottom dots */}
-        <div className="flex gap-2">
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="w-1 h-1 rounded-full bg-[#ff0088]"
-              animate={{
-                opacity: [0.2, 0.8, 0.2],
-                scale: [1, 1.2, 1]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: i * 0.15
-              }}
-            />
-          ))}
-        </div>
+        {/* Decorative thin line */}
+        <motion.div 
+            className="w-12 h-[1px] bg-slate-200"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+        />
       </div>
 
-      {/* Subtle glow effect */}
-      <motion.div
-        className="absolute w-64 h-64 bg-[#ff0088] rounded-full blur-[120px] opacity-10"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.15, 0.1]
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
+      {/* Subtle corner accents */}
+      <div className="absolute top-12 left-12 w-8 h-8 border-t border-l border-[#38b2ff]/20" />
+      <div className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-[#38b2ff]/20" />
     </motion.div>
   )
 }
