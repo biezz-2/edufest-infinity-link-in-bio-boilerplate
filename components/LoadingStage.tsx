@@ -74,6 +74,29 @@ export default function LoadingStage({
 
       {/* Main Counter Container */}
       <div className="relative flex flex-col items-center gap-6">
+        {/* Infinity Logo Integration */}
+        <motion.div
+          className="relative w-24 h-24 mb-2"
+          initial={{ scale: 0, rotate: 0 }}
+          animate={{
+            scale: [0, 1.1, 1],
+            rotate: [0, 360]
+          }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            repeat: Infinity
+          }}
+        >
+          <Image
+            src="/logo/icon.svg"
+            alt="Infinity Logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </motion.div>
+
         {/* Decorative top dots */}
         <div className="flex gap-2">
           {[...Array(3)].map((_, i) => (

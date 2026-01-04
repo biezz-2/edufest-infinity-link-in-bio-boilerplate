@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
+import Image from "next/image"
 
 interface RevealStageProps {
     duration?: number
@@ -115,6 +116,27 @@ export default function RevealStage({
                     </defs>
                     <rect width="100%" height="100%" fill="url(#transition-grid)" />
                 </svg>
+            </motion.div>
+
+            {/* Placeholder SVG Integration - The "exploding" core asset */}
+            <motion.div
+                className="absolute z-25 w-48 h-48 md:w-64 md:h-64"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{
+                    scale: [0, 1.5, 2],
+                    opacity: [0, 0.8, 0],
+                }}
+                transition={{
+                    duration: 1.2,
+                    ease: "easeOut"
+                }}
+            >
+                <Image
+                    src="/placeholder.svg"
+                    alt="Core Asset"
+                    fill
+                    className="object-contain opacity-50"
+                />
             </motion.div>
 
             {/* Center Core Light */}
