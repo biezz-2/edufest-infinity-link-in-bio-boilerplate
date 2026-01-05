@@ -90,7 +90,7 @@ export default function LoadingStage({
         >
           <div className="absolute inset-0 bg-[#38b2ff] rounded-full blur-2xl opacity-10 animate-pulse"></div>
           <Image
-            src="/logo/icon.svg"
+            src="/logo/logo.png"
             alt="Infinity Logo"
             fill
             className="object-contain"
@@ -139,3 +139,4 @@ export default function LoadingStage({
     </motion.div>
   )
 }
+
