@@ -121,7 +121,7 @@ export default function HomePage() {
               className="flex justify-center gap-10 pt-10 border-t border-slate-100"
             >
               {[
-                { name: "Instagram", icon: faInstagram, url: "https://www.instagram.com/osissmaitfi" },
+                { name: "Instagram", icon: faInstagram, url: "https://www.instagram.com/fi.edufest" },
                 { name: "TikTok", icon: faTiktok, url: "https://www.tiktok.com/@fi.edufest8?_r=1&_t=ZS-92oQ7GOVK5v" },
                 { name: "WhatsApp", icon: faWhatsapp, url: "https://wa.me/6285693564029" },
               ].map((social) => (
