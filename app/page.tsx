@@ -122,7 +122,7 @@ export default function HomePage() {
             >
               {[
                 { name: "Instagram", icon: faInstagram, url: "https://www.instagram.com/osissmaitfi" },
-                { name: "TikTok", icon: faTiktok, url: "https://www.tiktok.com/@osissmaitfi" },
+                { name: "TikTok", icon: faTiktok, url: "https://www.tiktok.com/@fi.edufest8?_r=1&_t=ZS-92oQ7GOVK5v" },
                 { name: "WhatsApp", icon: faWhatsapp, url: "https://wa.me/6285693564029" },
               ].map((social) => (
                 <motion.a
