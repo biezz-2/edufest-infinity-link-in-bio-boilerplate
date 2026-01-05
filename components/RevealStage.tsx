@@ -113,7 +113,7 @@ export default function RevealStage({
                 }}
             >
                 <Image
-                    src="/placeholder.svg"
+                    src="/logo/logo-edufest.svg"
                     alt="Core Asset"
                     fill
                     className="object-contain opacity-20 grayscale brightness-110"
