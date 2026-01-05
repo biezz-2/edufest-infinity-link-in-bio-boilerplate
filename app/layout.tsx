@@ -9,9 +9,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Link in Bio",
-  description: "Personal link hub - Kumpulan link penting di satu tempat",
-  generator: "v0.app",
+  title: "Edufest Infinity",
+  description: "The Eighth Annual Fithrah Insani Education Festival",
+  generator: "Biezz's Developer",
   icons: {
     icon: [
       {

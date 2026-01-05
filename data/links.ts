@@ -14,26 +14,32 @@ export const links: SocialLink[] = [
   },
   {
     id: 2,
-    title: "Juklak & Juknis",
-    url: "https://drive.google.com/your-juklak-juknis",
+    title: "Petunjuk Pelaksanaan dan Teknis FIEDUFEST8 INFINITY",
+    url: "https://drive.google.com/drive/folders/1gd0Q1q9ouyYQgfMiknr-AnLben_sncKO",
     icon: "📘",
   },
   {
     id: 3,
     title: "Aturan Twibbon",
-    url: "https://drive.google.com/aturan-twibbon",
+    url: "https://drive.google.com/drive/folders/1JNrh7rEp3TqY99_a0DGkVuVUYd7tCySz",
     icon: "📌",
   },
   {
     id: 4,
     title: "Twibbonize",
-    url: "https://www.twibbonize.com/your-event",
+    url: "https://www.twibbonize.com/eddufest8-infinity",
     icon: "🖼️",
   },
   {
     id: 5,
-    title: "Proposal Kegiatan",
-    url: "https://drive.google.com/proposal",
+    title: "Proposal Sponshorship",
+    url: "https://drive.google.com/drive/folders/1u_PNRMsz7PeTlddknzT7mNjAOU5TGyZ_",
+    icon: "📄",
+  },
+    {
+    id: 6,
+    title: "Informasi Bazzar FIEDUFEST8 INFINITY",
+    url: "https://drive.google.com/drive/folders/1DQs16J-E_B5nA6ov0J25Z8-IZ7I9GgAn",
     icon: "📄",
   },
 ]

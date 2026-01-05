@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faInstagram, faTiktok, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram, faTiktok, faTwitter, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { links } from "@/data/links"
 import IntroSequence from "@/components/IntroSequence"
 
@@ -54,21 +54,21 @@ export default function HomePage() {
               >
                 <div className="absolute inset-0 bg-[#38b2ff] rounded-full blur-2xl opacity-10"></div>
                 <Image
-                  src="/profile-avatar.png"
-                  alt="Profile"
-                  width={110}
-                  height={110}
-                  className="relative rounded-full border-2 border-white shadow-sm"
+                  src="/logo/logo-edufest.svg"
+                  alt="Edufest Logo"
+                  width={2000}
+                  height={1000}
+                  className="relative rounded-full border-3 border-white shadow-sm"
                   priority
                 />
               </motion.div>
 
               <div className="space-y-1">
                 <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-                  biezz
+                  INFINITY
                 </h1>
                 <p className="text-sm md:text-base text-slate-500 font-medium">
-                  Engineer • Student • Building cool stuff
+                  The Eighth Annual Fithrah Insani Education Festival
                 </p>
               </div>
             </motion.div>
@@ -123,7 +123,7 @@ export default function HomePage() {
               {[
                 { name: "Instagram", icon: faInstagram, url: "https://www.instagram.com/osissmaitfi" },
                 { name: "TikTok", icon: faTiktok, url: "https://www.tiktok.com/@osissmaitfi" },
-                { name: "Twitter", icon: faTwitter, url: "https://twitter.com/osissmaitfi" },
+                { name: "WhatsApp", icon: faWhatsapp, url: "https://wa.me/6285693564029" },
               ].map((social) => (
                 <motion.a
                   key={social.name}
