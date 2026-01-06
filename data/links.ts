@@ -27,7 +27,7 @@ export const links: SocialLink[] = [
   {
     id: 4,
     title: "Twibbonize",
-    url: "https://www.twibbonize.com/eddufest8-infinity",
+    url: "https://twb.nz/edufest8-infinity2",
     icon: "🖼️",
   },
   {
