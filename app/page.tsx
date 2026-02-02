@@ -118,24 +118,57 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 10 : 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="flex justify-center gap-10 pt-10 border-t border-slate-100"
+              className="flex flex-col items-center gap-8 pt-10 border-t border-slate-100"
             >
-              {[
-                { name: "Instagram", icon: faInstagram, url: "https://www.instagram.com/fi.edufest" },
-                { name: "TikTok", icon: faTiktok, url: "https://www.tiktok.com/@fi.edufest8?_r=1&_t=ZS-92oQ7GOVK5v" },
-                { name: "WhatsApp", icon: faWhatsapp, url: "https://wa.me/6285693564029" },
-              ].map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  whileHover={{ y: -3, color: "#38b2ff" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex flex-col items-center gap-2 text-slate-400 transition-all"
-                >
-                  <FontAwesomeIcon icon={social.icon} className="text-2xl" />
-                  <span className="text-[10px] uppercase font-bold tracking-widest">{social.name}</span>
-                </motion.a>
-              ))}
+              <div className="flex gap-10">
+                {[
+                  { name: "Instagram", icon: faInstagram, url: "https://www.instagram.com/fi.edufest" },
+                  { name: "TikTok", icon: faTiktok, url: "https://www.tiktok.com/@fi.edufest8?_r=1&_t=ZS-92oQ7GOVK5v" },
+                  { name: "WhatsApp", icon: faWhatsapp, url: "https://wa.me/6285693564029" },
+                ].map((social) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.url}
+                    whileHover={{ y: -3, color: "#38b2ff" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex flex-col items-center gap-2 text-slate-400 transition-all"
+                  >
+                    <FontAwesomeIcon icon={social.icon} className="text-2xl" />
+                    <span className="text-[10px] uppercase font-bold tracking-widest">{social.name}</span>
+                  </motion.a>
+                ))}
+              </div>
+
+              <div className="relative flex flex-col items-center justify-center px-12 py-6 mt-6">
+                {/* Brush Stroke Background */}
+                <div className="absolute inset-0 w-full h-full z-0">
+                  <svg viewBox="0 0 200 60" preserveAspectRatio="none" className="w-full h-full text-[#FBEFEF]" fill="currentColor">
+                    <path d="M5.4,24.6c0,0,3.3-6.5,14.6-7.8c18.5-2.2,69.5-2.2,109.8,1.1c45.4,3.7,64.6,3.3,64.6,3.3s-2.2,9.7-10.8,13.8c-12.6,6-54.8,13.4-123,5.6 C14.3,35.2,1.8,32.4,5.4,24.6z" />
+                  </svg>
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center gap-1">
+                  <motion.a
+                    href="https://github.com/biezz-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-slate-600 hover:text-[#38b2ff] transition-colors font-medium"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Designed by biezz-2
+                  </motion.a>
+                  <motion.a
+                    href="https://lucifiz-api.biezz.my.id/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] text-slate-500 hover:text-[#38b2ff] transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Visit my Website
+                  </motion.a>
+                </div>
+              </div>
             </motion.footer>
           </div>
         </main>
