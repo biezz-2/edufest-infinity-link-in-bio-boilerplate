@@ -37,41 +37,69 @@ export default function HomePage() {
           pointerEvents: showIntro ? "none" : "auto"
         }}
       >
-        <main className="min-h-screen bg-[#f8f9fd] text-slate-800 px-4">
-          <div className="w-full max-w-md mx-auto flex flex-col gap-10 py-16 md:py-24">
-            {/* Profile Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 15 : 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col items-center text-center gap-5"
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: showIntro ? 0.9 : 1, opacity: showIntro ? 0 : 1 }}
-                transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-[#38b2ff] rounded-full blur-2xl opacity-10"></div>
-                <Image
-                  src="/logo/logo-edufest.svg"
-                  alt="Edufest Logo"
-                  width={2000}
-                  height={1000}
-                  className="relative rounded-full border-3 border-white shadow-sm"
-                  priority
-                />
-              </motion.div>
+      <main className="min-h-screen relative text-slate-100 px-4 overflow-hidden">
+        {/* Background Layers */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          {/* Layer 1: Sky */}
+          <div className="absolute inset-0">
+            <Image 
+              src="/background/bg-sky.png" 
+              alt="Sky Background" 
+              fill 
+              className="object-cover"
+              priority
+              quality={100}
+            />
+          </div>
+          {/* Layer 2: Main Background */}
+          <div className="absolute inset-0 mix-blend-multiply">
+            <Image 
+              src="/background/bg.png" 
+              alt="Main Background" 
+              fill 
+              className="object-cover"
+              priority
+              quality={100}
+            />
+          </div>
+          {/* Optional Overlay for readability */}
+          <div className="absolute inset-0 bg-black/10" />
+        </div>
 
-              <div className="space-y-1">
-                <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-                  INFINITY
-                </h1>
-                <p className="text-sm md:text-base text-slate-500 font-medium">
-                  The Eighth Annual Fithrah Insani Education Festival
-                </p>
-              </div>
+        <div className="relative z-10 w-full max-w-md mx-auto flex flex-col gap-10 py-16 md:py-24">
+          {/* Profile Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 15 : 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col items-center text-center gap-5 bg-white p-8 rounded-3xl shadow-xl"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: showIntro ? 0.9 : 1, opacity: showIntro ? 0 : 1 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-[#38b2ff] rounded-full blur-2xl opacity-20"></div>
+              <Image
+                src="/logo/logo-edufest.svg"
+                alt="Edufest Logo"
+                width={2000}
+                height={1000}
+                className="relative rounded-full border-2 border-slate-100 shadow-lg"
+                priority
+              />
             </motion.div>
+
+            <div className="space-y-1">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
+                INFINITY
+              </h1>
+              <p className="text-sm md:text-base text-slate-600 font-medium">
+                The Eighth Annual Fithrah Insani Education Festival
+              </p>
+            </div>
+          </motion.div>
 
             {/* Links Section */}
             <motion.section
@@ -118,7 +146,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 10 : 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="flex flex-col items-center gap-8 pt-10 border-t border-slate-100"
+              className="flex flex-col items-center gap-8 pt-10 border-t border-white/20"
             >
               <div className="flex gap-10">
                 {[
@@ -131,42 +159,51 @@ export default function HomePage() {
                     href={social.url}
                     whileHover={{ y: -3, color: "#38b2ff" }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex flex-col items-center gap-2 text-slate-400 transition-all"
+                    className="flex flex-col items-center gap-2 text-slate-200 transition-all hover:text-white"
                   >
                     <FontAwesomeIcon icon={social.icon} className="text-2xl" />
-                    <span className="text-[10px] uppercase font-bold tracking-widest">{social.name}</span>
+                    <span className="text-[10px] uppercase font-bold tracking-widest opacity-80">{social.name}</span>
                   </motion.a>
                 ))}
               </div>
 
-              <div className="relative flex flex-col items-center justify-center px-12 py-6 mt-6">
-                {/* Brush Stroke Background */}
-                <div className="absolute inset-0 w-full h-full z-0">
-                  <svg viewBox="0 0 200 60" preserveAspectRatio="none" className="w-full h-full text-[#FBEFEF]" fill="currentColor">
-                    <path d="M5.4,24.6c0,0,3.3-6.5,14.6-7.8c18.5-2.2,69.5-2.2,109.8,1.1c45.4,3.7,64.6,3.3,64.6,3.3s-2.2,9.7-10.8,13.8c-12.6,6-54.8,13.4-123,5.6 C14.3,35.2,1.8,32.4,5.4,24.6z" />
-                  </svg>
-                </div>
-
-                {/* Content */}
-                <div className="relative z-10 flex flex-col items-center gap-1">
-                  <motion.a
-                    href="https://github.com/biezz-2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-slate-600 hover:text-[#38b2ff] transition-colors font-medium"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    Designed by biezz-2
-                  </motion.a>
-                  <motion.a
-                    href="https://lucifiz-api.biezz.my.id/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[10px] text-slate-500 hover:text-[#38b2ff] transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    Visit my Website
-                  </motion.a>
+              <div className="relative flex flex-col items-center justify-center mt-6">
+                {/* MacOS Terminal Window */}
+                <div className="w-full max-w-[320px] bg-[#1e1e1e] rounded-lg shadow-2xl overflow-hidden border border-white/10 font-mono">
+                  {/* Terminal Header */}
+                  <div className="bg-[#2d2d2d] px-4 py-2 flex items-center gap-2 border-b border-white/5">
+                    <div className="w-3 h-3 rounded-full bg-[#FF5F56] hover:bg-[#FF5F56]/80 transition-colors" />
+                    <div className="w-3 h-3 rounded-full bg-[#FFBD2E] hover:bg-[#FFBD2E]/80 transition-colors" />
+                    <div className="w-3 h-3 rounded-full bg-[#27C93F] hover:bg-[#27C93F]/80 transition-colors" />
+                    <div className="ml-2 text-[10px] text-gray-400 select-none">biezz-2 — -zsh</div>
+                  </div>
+                  
+                  {/* Terminal Content */}
+                  <div className="p-4 flex flex-col items-center gap-3 bg-[#1e1e1e]/95 backdrop-blur-sm">
+                    <div className="flex flex-col items-center gap-1">
+                      <motion.a
+                        href="https://github.com/biezz-2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-green-400 hover:text-green-300 transition-colors font-medium flex items-center gap-2"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <span className="text-pink-500">➜</span>
+                        <span className="text-cyan-400">~</span>
+                        <span>Designed by biezz-2</span>
+                      </motion.a>
+                      <motion.a
+                        href="https://lucifiz-api.biezz.my.id/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-slate-400 hover:text-[#38b2ff] transition-colors mt-1"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <span className="opacity-50">$</span> Visit my Website
+                        <span className="animate-pulse ml-1 inline-block w-1.5 h-3 bg-slate-400 align-middle"></span>
+                      </motion.a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.footer>
